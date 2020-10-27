@@ -11,3 +11,5 @@
 .settings/
 .project
 tree.txt
+*.lst
+target
