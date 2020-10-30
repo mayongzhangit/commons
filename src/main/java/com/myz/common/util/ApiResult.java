@@ -1,16 +1,11 @@
 package com.myz.common.util;
 
-import lombok.Data;
-import lombok.ToString;
-
 /**
  * @author yzMa
  * @desc
  * @date 2020/8/14 18:04
  * @email 2641007740@qq.com
  */
-@Data
-@ToString
 public class ApiResult<T> {
 
     private String code;
@@ -55,5 +50,38 @@ public class ApiResult<T> {
 
     public static ApiResult build(String code,String msg){
         return build(code,msg,null);
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiResult{" +
+                "code='" + code + '\'' +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
