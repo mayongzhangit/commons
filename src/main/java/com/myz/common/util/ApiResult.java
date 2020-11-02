@@ -1,12 +1,14 @@
 package com.myz.common.util;
 
+import java.io.Serializable;
+
 /**
  * @author yzMa
  * @desc
  * @date 2020/8/14 18:04
  * @email 2641007740@qq.com
  */
-public class ApiResult<T> {
+public class ApiResult<T> implements Serializable {
 
     private String code;
     private String msg;
