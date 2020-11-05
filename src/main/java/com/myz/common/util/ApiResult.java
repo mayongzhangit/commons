@@ -13,6 +13,7 @@ public class ApiResult<T> implements Serializable {
     private String code;
     private String msg;
     private T data;
+    private String userJson;
 
     public static String SUCCESS_CODE = "000000";
     public static String SUCCESS_MSG = "成功";
@@ -54,6 +55,14 @@ public class ApiResult<T> implements Serializable {
         return build(code,msg,null);
     }
 
+    public String getUserJson() {
+        return userJson;
+    }
+
+    public void setUserJson(String userJson) {
+        this.userJson = userJson;
+    }
+
     public String getCode() {
         return code;
     }
@@ -84,6 +93,7 @@ public class ApiResult<T> implements Serializable {
                 "code='" + code + '\'' +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
+                ", userJson='" + userJson + '\'' +
                 '}';
     }
 }
