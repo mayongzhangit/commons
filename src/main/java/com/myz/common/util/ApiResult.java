@@ -31,6 +31,18 @@ public class ApiResult<T> implements Serializable {
         this.msg = msg;
     }
 
+    public boolean isSuccess(){
+        return SUCCESS_CODE.equals(this.getCode());
+    }
+
+    public boolean isSuccessButNull(){
+        return SUCCESS_CODE.equals(this.getCode()) && this.getData() == null;
+    }
+
+    public boolean isSuccessAndNotNull(){
+        return SUCCESS_CODE.equals(this.getCode()) && this.getData() != null;
+    }
+
     public static ApiResult OK(Object object){
         return build(SUCCESS_CODE,SUCCESS_MSG,object);
     }
