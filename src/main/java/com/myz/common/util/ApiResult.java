@@ -11,7 +11,9 @@ import java.io.Serializable;
 public class ApiResult<T> implements Serializable {
 
     private String code;
+    private String subCode;
     private String msg;
+    private String subMsg;
     private T data;
     private String userJson;
 
@@ -29,6 +31,21 @@ public class ApiResult<T> implements Serializable {
     public ApiResult(String code,String msg){
         this.code = code;
         this.msg = msg;
+    }
+
+    public ApiResult(String code,String subCode,String msg,String subMsg){
+        this.code = code;
+        this.subCode = subCode;
+        this.msg = msg;
+        this.subMsg = subMsg;
+    }
+
+    public ApiResult(String code,String subCode,String msg,String subMsg,T data){
+        this.code = code;
+        this.subCode = subCode;
+        this.msg = msg;
+        this.subMsg = subMsg;
+        this.data = data;
     }
 
     public boolean isSuccess(){
@@ -63,16 +80,16 @@ public class ApiResult<T> implements Serializable {
         return new ApiResult(code,msg,object);
     }
 
+    public static ApiResult build(String code,String subCode,String msg,String subMsg,Object object){
+        return new ApiResult(code,subMsg,msg,subMsg,object);
+    }
+
     public static ApiResult build(String code,String msg){
         return build(code,msg,null);
     }
 
-    public String getUserJson() {
-        return userJson;
-    }
-
-    public void setUserJson(String userJson) {
-        this.userJson = userJson;
+    public static ApiResult build(String code,String subCode,String msg,String subMsg){
+        return new ApiResult(code,subMsg,msg,subMsg);
     }
 
     public String getCode() {
@@ -83,12 +100,28 @@ public class ApiResult<T> implements Serializable {
         this.code = code;
     }
 
+    public String getSubCode() {
+        return subCode;
+    }
+
+    public void setSubCode(String subCode) {
+        this.subCode = subCode;
+    }
+
     public String getMsg() {
         return msg;
     }
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public String getSubMsg() {
+        return subMsg;
+    }
+
+    public void setSubMsg(String subMsg) {
+        this.subMsg = subMsg;
     }
 
     public T getData() {
@@ -99,11 +132,21 @@ public class ApiResult<T> implements Serializable {
         this.data = data;
     }
 
+    public String getUserJson() {
+        return userJson;
+    }
+
+    public void setUserJson(String userJson) {
+        this.userJson = userJson;
+    }
+
     @Override
     public String toString() {
         return "ApiResult{" +
                 "code='" + code + '\'' +
+                ", subCode='" + subCode + '\'' +
                 ", msg='" + msg + '\'' +
+                ", subMsg='" + subMsg + '\'' +
                 ", data=" + data +
                 ", userJson='" + userJson + '\'' +
                 '}';
