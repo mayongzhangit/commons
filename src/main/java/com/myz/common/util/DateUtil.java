@@ -61,11 +61,10 @@ public class DateUtil {
 
     /**
      *
-     * @param country
      * @return
      * @throws ParseException
      */
-    public static String truncateDayStr(String country) throws ParseException {
+    public static String truncateDayStr() throws ParseException {
         return truncateDayAndAddDayStr(0);
     }
 
