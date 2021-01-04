@@ -13,6 +13,10 @@ public class PrintUtil {
 
     private PrintUtil(){}
 
+    /**
+     *
+     * @param obj
+     */
     public static void print(Object obj){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = sdf.format(new Date());
